@@ -3,8 +3,14 @@
   "name": "Localhost Password Storage",
   "version": "1.0.0",
   "description": "Store and manage passwords for localhost applications",
-  "permissions": ["storage"],
+  "permissions": ["storage", "activeTab"],
   "action": {
     "default_popup": "index.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost/*"],
+      "js": ["content-script.js"]
+    }
+  ]
 }
